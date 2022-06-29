@@ -279,6 +279,7 @@ public class AdminAddNewHrFrame extends javax.swing.JFrame {
                 if(result==1){
                 JOptionPane.showMessageDialog(null,"Record added","Succes ",JOptionPane.INFORMATION_MESSAGE);
                 clearAll();
+                loadId();
                 return; 
                 }else if(result==-1){
                  JOptionPane.showMessageDialog(null,"This email is already registered ","Error !",JOptionPane.ERROR_MESSAGE);

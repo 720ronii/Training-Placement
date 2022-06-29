@@ -40,8 +40,8 @@ public class AdminHrModuleFrame extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnRemoveHr = new javax.swing.JButton();
+        btnModifyHr = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
@@ -50,7 +50,7 @@ public class AdminHrModuleFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(239, 245, 251));
+        jPanel1.setBackground(new java.awt.Color(243, 246, 254));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/transparent logo.png"))); // NOI18N
@@ -79,21 +79,21 @@ public class AdminHrModuleFrame extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/addNewEmp.png"))); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 190, 190));
 
-        jButton2.setText("Remove HR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnRemoveHr.setText("Remove HR");
+        btnRemoveHr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnRemoveHrActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, 130, 30));
+        jPanel1.add(btnRemoveHr, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, 130, 30));
 
-        jButton3.setText("Modify HR");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnModifyHr.setText("Modify HR");
+        btnModifyHr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnModifyHrActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 430, 130, 30));
+        jPanel1.add(btnModifyHr, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 430, 130, 30));
 
         jButton4.setText("View All HR");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -134,20 +134,26 @@ public class AdminHrModuleFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btnRemoveHrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveHrActionPerformed
+        
+        // REMOVE HR
+        
+    }//GEN-LAST:event_btnRemoveHrActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void btnModifyHrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyHrActionPerformed
+                new  AdminModifyHrFrame().setVisible(true);
+                this.dispose();
+    }//GEN-LAST:event_btnModifyHrActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
+            new AdminOptionsFrame().setVisible(true);        // TODO add your handling code here:
+            this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        new AdminViewAllHrFrame().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -156,7 +162,8 @@ public class AdminHrModuleFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        
+                new AdminAddNewHrFrame().setVisible(true);
+                this.dispose();
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -198,8 +205,8 @@ public class AdminHrModuleFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnModifyHr;
+    private javax.swing.JButton btnRemoveHr;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;

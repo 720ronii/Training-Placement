@@ -35,8 +35,10 @@ public class LoginFrame extends javax.swing.JFrame {
         
         if(jrbAdmin.isSelected())
             return "Admin";
-        else if(jrbHR.isSelected())
-            return "HR";
+        else if(jrbHR.isSelected()){
+            System.out.println("Hr selected");
+            return "Hr";
+        }     
         else if(jrbStudent.isSelected())
             return "Student";
         
@@ -69,7 +71,7 @@ public class LoginFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(239, 245, 251));
+        jPanel1.setBackground(new java.awt.Color(243, 246, 254));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jrbStudent.setText("Student");
@@ -223,8 +225,11 @@ public class LoginFrame extends javax.swing.JFrame {
                             JOptionPane.showMessageDialog(null,"Welcome "+CurrentUsers.getName(),"Success",JOptionPane.INFORMATION_MESSAGE);
                             new AdminOptionsFrame().setVisible(result);
                             this.dispose();
-                        } else if(CurrentUsers.getType().equals("HR")){
-                            // code to open hr module
+                        } else if(CurrentUsers.getType().equals("Hr")){
+                            
+                            JOptionPane.showMessageDialog(null,"Welcome HR MODULE"+CurrentUsers.getName(),"Success",JOptionPane.INFORMATION_MESSAGE);
+                            new AdminOptionsFrame().setVisible(result);
+                            this.dispose();
                         }
                         else{
                             // COde to open student module

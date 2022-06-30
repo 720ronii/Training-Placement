@@ -42,8 +42,8 @@ public class AdminHrModuleFrame extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         btnRemoveHr = new javax.swing.JButton();
         btnModifyHr = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnViewAllHr = new javax.swing.JButton();
+        btnAddNewHr = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
 
@@ -95,21 +95,21 @@ public class AdminHrModuleFrame extends javax.swing.JFrame {
         });
         jPanel1.add(btnModifyHr, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 430, 130, 30));
 
-        jButton4.setText("View All HR");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnViewAllHr.setText("View All HR");
+        btnViewAllHr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnViewAllHrActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 430, 130, 30));
+        jPanel1.add(btnViewAllHr, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 430, 130, 30));
 
-        jButton5.setText("Add New HR");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnAddNewHr.setText("Add New HR");
+        btnAddNewHr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnAddNewHrActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 130, 30));
+        jPanel1.add(btnAddNewHr, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 130, 30));
 
         btnBack.setBackground(new java.awt.Color(173, 192, 234));
         btnBack.setText("Back");
@@ -135,7 +135,8 @@ public class AdminHrModuleFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRemoveHrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveHrActionPerformed
-        
+        new AdminRemoveHrFrame().setVisible(true);
+        this.dispose();
         // REMOVE HR
         
     }//GEN-LAST:event_btnRemoveHrActionPerformed
@@ -150,22 +151,22 @@ public class AdminHrModuleFrame extends javax.swing.JFrame {
             this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnViewAllHrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllHrActionPerformed
         // TODO add your handling code here:
         new AdminViewAllHrFrame().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnViewAllHrActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
             new LoginFrame().setVisible(true);
             this.dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnAddNewHrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewHrActionPerformed
                 new AdminAddNewHrFrame().setVisible(true);
                 this.dispose();
         
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnAddNewHrActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,12 +204,12 @@ public class AdminHrModuleFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddNewHr;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnModifyHr;
     private javax.swing.JButton btnRemoveHr;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btnViewAllHr;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

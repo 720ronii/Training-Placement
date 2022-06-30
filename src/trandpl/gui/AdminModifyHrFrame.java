@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import trandpl.dao.UsersDAO;
@@ -52,13 +54,20 @@ public class AdminModifyHrFrame extends javax.swing.JFrame {
         Password=String.valueOf(pass);
         confirmpass=String.valueOf(cfrnpass);      
         if(pass.length>4){
-            if(Password.equals(cfrnpass)){
+            if(Password.equals(confirmpass)){
                 return 1;
             }
             return 0;
         }else{
             return -1;
         }
+    }
+    private void clearAll(){
+        
+       jcAllUserId.setSelectedIndex(0);
+       txtHrId.setText("");
+       jpass.setText("");
+       jcfrmpass.setText("");
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -219,23 +228,6 @@ public class AdminModifyHrFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnmodifyallHrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodifyallHrActionPerformed
-        
-        int x=validatePassword();
-        System.out.println(x);
-        if(x==1){
-            
-            // call methode to update passowrd
-        }else if(x==0){
-                JOptionPane.showMessageDialog(null,"Password and confirm password should be equals !","Error",JOptionPane.ERROR_MESSAGE);
-                
-        }else if(x==-1){
-            JOptionPane.showMessageDialog(null,"Password length should be greater than 4 char !","Error",JOptionPane.ERROR_MESSAGE);
-        }
-        
-        
-    }//GEN-LAST:event_btnmodifyallHrActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             new AdminHrModuleFrame().setVisible(true);
             this.dispose();
@@ -267,6 +259,38 @@ public class AdminModifyHrFrame extends javax.swing.JFrame {
     private void jpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jpassActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jpassActionPerformed
+
+    private void btnmodifyallHrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodifyallHrActionPerformed
+
+        int x=validatePassword();
+        System.out.println(x);
+        if(x==1){
+
+            try{
+                boolean result=UsersDAO.updatepassword(Password,jcAllUserId.getSelectedItem().toString());
+                if(result==true){
+                    JOptionPane.showMessageDialog(null,"Password changed Successfully ","Done !", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"Sorry coudn't changed password ","OOps !", JOptionPane.ERROR_MESSAGE);
+                }
+                clearAll();
+            }
+            catch(SQLException e){
+                JOptionPane.showMessageDialog(null,"Password not changed DB Error ","Error !", JOptionPane.ERROR_MESSAGE);
+            } catch (Exception ex) {
+                Logger.getLogger(AdminModifyHrFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            // call methode to update passowrd
+        }else if(x==0){
+            JOptionPane.showMessageDialog(null,"Password and confirm password should be equals !","Error",JOptionPane.ERROR_MESSAGE);
+
+        }else if(x==-1){
+            JOptionPane.showMessageDialog(null,"Password length should be greater than 4 char !","Error",JOptionPane.ERROR_MESSAGE);
+        }
+
+    }//GEN-LAST:event_btnmodifyallHrActionPerformed
 
     /**
      * @param args the command line arguments

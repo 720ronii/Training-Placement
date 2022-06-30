@@ -66,9 +66,17 @@ public class UsersDAO {
     
     public static boolean updatepassword(String password, String userId)throws Exception{
         Connection conn= DBConnection.getConnection();
-        PreparedStatement ps=conn.prepareStatement("update users set password=? where userid=?");
+        PreparedStatement ps=conn.prepareStatement("update users set password=?,active='y', where userid=?");
         ps.setString(1,password);
         ps.setString(2, userId);
         return 1==ps.executeUpdate();    
+    }
+    
+    public static boolean removeUser(String userId) throws SQLException{
+        
+        Connection conn=DBConnection.getConnection();
+        PreparedStatement ps=conn.prepareStatement("update users set active='N' where userid=?");
+        ps.setString(1, userId);
+        return 1==ps.executeUpdate();
     }
 }

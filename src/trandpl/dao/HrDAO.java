@@ -47,12 +47,13 @@ public class HrDAO {
         if(rs.next()){
             return -1;
         }
-        ps=conn.prepareStatement("insert into users values(?,?,?,?,?)");
+        ps=conn.prepareStatement("insert into users values(?,?,?,?,?,?)");
         ps.setString(1, hr.getUserId());
         ps.setString(2, hr.getHrId());
         ps.setString(3, hr.getHrName());
         ps.setString(4, hr.getPassword());
         ps.setString(5, hr.getType());
+        ps.setString(6, "y");
         int x=ps.executeUpdate();
         int y=0;
         if(x==1){
@@ -72,7 +73,7 @@ public class HrDAO {
            
         Connection conn= DBConnection.getConnection();
         Statement st=conn.createStatement();
-        ResultSet rs=st.executeQuery("Select hr.hrid,users.userid,users.name,hr.phone,hr.companyname from hr,users where hr.hrid=users.id order by hr.hrid");
+        ResultSet rs=st.executeQuery("Select hr.hrid,users.userid,users.name,hr.phone,hr.companyname from hr,users where hr.hrid=users.id and users.active='y'order by hr.hrid");
         List<HrPojo> allHrList=new ArrayList<>();
         while(rs.next()){
             HrPojo obj=new HrPojo();

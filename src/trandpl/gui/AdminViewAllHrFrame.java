@@ -21,12 +21,13 @@ import trandpl.pojo.HrPojo;
 public class AdminViewAllHrFrame extends javax.swing.JFrame {
 
     private DefaultTableModel model;
+    
     public AdminViewAllHrFrame() {
         initComponents();
         model=(DefaultTableModel)tblAllHr.getModel();
+       
         this.setLocationRelativeTo(null);
-        lblName.setText(CurrentUsers.getName());
-        
+        lblName.setText(CurrentUsers.getName()); 
         loadHrDetails();
         
     }
@@ -41,7 +42,8 @@ public class AdminViewAllHrFrame extends javax.swing.JFrame {
                 row.add(hr.getUserId());
                 row.add(hr.getHrName());
                 row.add(hr.getPhone());
-                row.add(hr.getCopanyName());
+                
+                System.out.println(row.add(hr.getCopanyName()));
                 model.addRow(row); 
             }
             if(allHrList.isEmpty()){

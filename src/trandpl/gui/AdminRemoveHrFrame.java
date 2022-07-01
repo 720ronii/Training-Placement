@@ -34,16 +34,16 @@ public class AdminRemoveHrFrame extends javax.swing.JFrame {
     }
     
     private void loadHrDetails(){
-        
         try{
             List<HrPojo> allHrList=HrDAO.getAllHr();
             for(HrPojo hr:allHrList){
-                
                 Vector<String> row=new Vector<>();
                 row.add(hr.getHrId());
                 row.add(hr.getUserId());
                 row.add(hr.getHrName());
                 row.add(hr.getPhone());
+                row.add(hr.getCopanyName());
+                
                 model.addRow(row); 
             }
             if(allHrList.isEmpty()){
@@ -79,10 +79,10 @@ public class AdminRemoveHrFrame extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jButton2 = new javax.swing.JButton();
         btnRemoveHr = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblAllHr = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblAllHr = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -142,20 +142,25 @@ public class AdminRemoveHrFrame extends javax.swing.JFrame {
         });
         jPanel1.add(btnRemoveHr, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 610, 190, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setText("All HR List:-");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setText("Removing Hr....");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 490, 130, -1));
+
         tblAllHr.setBackground(new java.awt.Color(173, 192, 234));
         tblAllHr.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Hr id", "User Id", "Name", "Phone number", "Company Name"
+                "Hr Id", "User Id", "Name", "Phone Number", "Company Name"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
@@ -169,18 +174,9 @@ public class AdminRemoveHrFrame extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblAllHr.setPreferredSize(new java.awt.Dimension(375, 0));
         jScrollPane1.setViewportView(tblAllHr);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 770, 250));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setText("All HR List:-");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setText("Removing Hr....");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 490, 130, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 730, 270));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 640));
 
@@ -209,8 +205,8 @@ public class AdminRemoveHrFrame extends javax.swing.JFrame {
         if(resp==JOptionPane.OK_OPTION){
             try
             {
-                String userId=(String)tblAllHr.getValueAt(row,0);
-                    
+                String userId=(String)tblAllHr.getValueAt(row,1);
+                
                 boolean result=UsersDAO.removeUser(userId);
                 if(result==true){
                     JOptionPane.showMessageDialog(null,"Record Deleted !","Success",JOptionPane.INFORMATION_MESSAGE);

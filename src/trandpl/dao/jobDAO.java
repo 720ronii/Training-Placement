@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import trandpl.dbutil.DBConnection;
 import trandpl.pojo.jobPojo;
 
@@ -47,6 +49,26 @@ public class jobDAO {
         return 1==ps.executeUpdate();
     }
     
-    
-    
+    public static List<jobPojo> getAllActiveJobByCurrentHr(String hrId) throws SQLException{
+        Connection conn=DBConnection.getConnection();
+        PreparedStatement ps=conn.prepareStatement("select jobid,jobtitle,tags,status from jobs where hrid=? and status!=-1");
+        ps.setString(1, hrId);
+        ResultSet rs=ps.executeQuery();
+        List<jobPojo> alljobList=new ArrayList<>();
+        while(rs.next()){
+            jobPojo obj=new jobPojo();
+            obj.setJobId(rs.getString(1));
+            obj.setTitle(rs.getString(2));
+            obj.setTags(rs.getString(3));
+            obj.setStatus(rs.getInt(4));
+            alljobList.add(obj);
+        }
+        return alljobList;  
+    }
+    public static boolean removeJobByJobId(String jobId) throws SQLException{
+        Connection conn=DBConnection.getConnection();
+        PreparedStatement ps=conn.prepareStatement("update jobs set status=-1 where jobid=?");
+        ps.setString(1, jobId);
+        return ps.executeUpdate()==1;  
+    }
 }

@@ -228,7 +228,7 @@ public class LoginFrame extends javax.swing.JFrame {
                             this.dispose();
                         } else if(CurrentUsers.getType().equals("Hr")){
                             
-                            JOptionPane.showMessageDialog(null,"Welcome HR MODULE"+CurrentUsers.getName(),"Success",JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(null,"Welcome "+CurrentUsers.getName(),"Success",JOptionPane.INFORMATION_MESSAGE);
                             new HrOptionFrame().setVisible(result);
                             this.dispose();
                         }

@@ -147,7 +147,7 @@ public class HrJobOptionFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddNewJobActionPerformed
 
     private void btnRemovejobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemovejobActionPerformed
-        new AdminRemoveHrFrame().setVisible(true);
+        new HrRemoveJobFrame().setVisible(true);
         this.dispose();
         // REMOVE HR
 

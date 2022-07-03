@@ -27,7 +27,7 @@ public class UsersDAO {
     public static  boolean validateUser(UsersPojo user) throws SQLException{
         
         Connection conn=DBConnection.getConnection();
-        PreparedStatement ps=conn.prepareStatement("Select * from users where userid=? and password=? and type=?");
+        PreparedStatement ps=conn.prepareStatement("Select * from users where userid=? and password=? and type=? and active='y'");
         ps.setString(1, user.getId());
         ps.setString(2, user.getPassword());;
         ps.setString(3, user.getType());

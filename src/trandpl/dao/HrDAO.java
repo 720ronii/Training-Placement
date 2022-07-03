@@ -87,5 +87,14 @@ public class HrDAO {
         return allHrList;
     }
     
+    public static String getCompanyNameByHrId(String hriD) throws SQLException{
+        Connection conn=DBConnection.getConnection();
+        PreparedStatement ps=conn.prepareStatement("select companyname from hr where hrid=?");
+        ps.setString(1, hriD);
+        ResultSet rs=ps.executeQuery();
+        rs.next();
+        
+        return rs.getString(1);
+    }
     
 }

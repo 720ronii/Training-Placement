@@ -222,13 +222,14 @@ public class LoginFrame extends javax.swing.JFrame {
                  if(result)
                  {
                         if(CurrentUsers.getType().equals("Admin")){
+                            System.out.println("Admin");
                             JOptionPane.showMessageDialog(null,"Welcome "+CurrentUsers.getName(),"Success",JOptionPane.INFORMATION_MESSAGE);
                             new AdminOptionsFrame().setVisible(result);
                             this.dispose();
                         } else if(CurrentUsers.getType().equals("Hr")){
                             
                             JOptionPane.showMessageDialog(null,"Welcome HR MODULE"+CurrentUsers.getName(),"Success",JOptionPane.INFORMATION_MESSAGE);
-                            new AdminOptionsFrame().setVisible(result);
+                            new HrOptionFrame().setVisible(result);
                             this.dispose();
                         }
                         else{

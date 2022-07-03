@@ -129,7 +129,7 @@ public class AdminHrModuleFrame extends javax.swing.JFrame {
         });
         jPanel1.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 500, 100, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1090, 550));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1090, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

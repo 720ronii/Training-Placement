@@ -11,7 +11,7 @@ public class DBConnection {
         
         try{
             Class.forName("oracle.jdbc.OracleDriver");
-            conn=DriverManager.getConnection("jdbc:oracle:thin:@ DESKTOP-AD2HP11:1521/XE","tnp","Ronit"); //url 
+            conn=DriverManager.getConnection("jdbc:oracle:thin:@ DESKTOP-AD2HP11:1521/XE","tnp","Ronit"); //url
             JOptionPane.showMessageDialog(null,"Connected Succesfully !");
            
         }catch(ClassNotFoundException ex){

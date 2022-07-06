@@ -71,4 +71,36 @@ public class jobDAO {
         ps.setString(1, jobId);
         return ps.executeUpdate()==1;  
     }
+    
+    public static List<jobPojo> getAllEditableJobByCurrentHr(String hrId) throws SQLException{
+        Connection conn=DBConnection.getConnection();
+        PreparedStatement ps=conn.prepareStatement("select jobid,jobtitle,tags,status from jobs where hrid=? and status=0");
+        ps.setString(1, hrId);
+        ResultSet rs=ps.executeQuery();
+        List<jobPojo> alljobList=new ArrayList<>();
+        while(rs.next()){
+            jobPojo obj=new jobPojo();
+            obj.setJobId(rs.getString(1));
+            obj.setTitle(rs.getString(2));
+            obj.setTags(rs.getString(3));
+            obj.setStatus(rs.getInt(4));
+            alljobList.add(obj);
+        }
+        return alljobList;  
+    }
+    public static boolean editJobById(jobPojo job)throws SQLException{
+        Connection conn=DBConnection.getConnection();
+        PreparedStatement ps=conn.prepareStatement("update jobs set jobtitle=?,tags=? where jobid=?");
+        ps.setString(1, job.getTitle());
+        ps.setString(2, job.getTags());
+        ps.setString(3, job.getJobId());
+        return 1==ps.executeUpdate();
+    }
+    public static boolean setJobStatus(String jobId)throws SQLException{
+         Connection conn=DBConnection.getConnection();
+        PreparedStatement ps=conn.prepareStatement("update jobs set status=1 where jobid=1");
+        ps.setString(1, jobId);
+        return 1==ps.executeUpdate();   
+    }
+   
 }

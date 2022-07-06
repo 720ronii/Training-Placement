@@ -91,7 +91,7 @@ public class HrAddNewJobFrame extends javax.swing.JFrame {
         jPanel1.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 380, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/World-Map.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 980, 140));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 1040, 140));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Welcome");
@@ -284,7 +284,7 @@ public class HrAddNewJobFrame extends javax.swing.JFrame {
         try{
             boolean result=jobDAO.addNewJob(job);
             if(result){
-                JOptionPane.showMessageDialog(null,"Job added","Succes ",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null,"Job added Sucessfully ","Succes ",JOptionPane.INFORMATION_MESSAGE);
                 clearAll();
                 loadData();
                 return;

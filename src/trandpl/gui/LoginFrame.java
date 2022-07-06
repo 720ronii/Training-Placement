@@ -1,7 +1,10 @@
  
 package trandpl.gui;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.SQLException;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import trandpl.dao.UsersDAO;
 import trandpl.pojo.CurrentUsers;
@@ -15,9 +18,13 @@ public class LoginFrame extends javax.swing.JFrame {
 
     public LoginFrame() {
         initComponents();
-        this.setLocationRelativeTo(null);
-    }
     
+     this.setLocationRelativeTo(null);
+//   this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+
+    }
+   
     public boolean validateInputs(){
         userId=txtMail.getText().trim();
         char []pwd=txtPwd.getPassword();
@@ -223,12 +230,12 @@ public class LoginFrame extends javax.swing.JFrame {
                  {
                         if(CurrentUsers.getType().equals("Admin")){
                             System.out.println("Admin");
-                            JOptionPane.showMessageDialog(null,"Welcome "+CurrentUsers.getName(),"Success",JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(null,"Welcome Admin "+CurrentUsers.getName(),"Success",JOptionPane.INFORMATION_MESSAGE);
                             new AdminOptionsFrame().setVisible(result);
                             this.dispose();
                         } else if(CurrentUsers.getType().equals("Hr")){
                             
-                            JOptionPane.showMessageDialog(null,"Welcome "+CurrentUsers.getName(),"Success",JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(null,"Welcome Hr "+CurrentUsers.getName(),"Success",JOptionPane.INFORMATION_MESSAGE);
                             new HrOptionFrame().setVisible(result);
                             this.dispose();
                         }
@@ -281,10 +288,17 @@ public class LoginFrame extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
+//        /* Create and display the form */
+        LoginFrame f=new LoginFrame();
+//        f.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+         //Set the width and height of the JFrame.
+
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginFrame().setVisible(true);
+                
             }
         });
     }

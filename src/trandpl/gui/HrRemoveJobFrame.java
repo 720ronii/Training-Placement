@@ -50,6 +50,7 @@ public class HrRemoveJobFrame extends javax.swing.JFrame {
             }
             if(allJobList.isEmpty()){
                 JOptionPane.showMessageDialog(null,"no Job founds !","job not Present",JOptionPane.INFORMATION_MESSAGE);
+                btnRemoveJob.setEnabled(false);
             }
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"DB Error !","Error",JOptionPane.ERROR_MESSAGE);
@@ -124,7 +125,7 @@ public class HrRemoveJobFrame extends javax.swing.JFrame {
         });
         jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 100, -1));
 
-        btnRemoveJob.setText("Remove job");
+        btnRemoveJob.setText("Remove Job");
         btnRemoveJob.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveJobActionPerformed(evt);

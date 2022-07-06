@@ -123,7 +123,7 @@ public class HrJobOptionFrame extends javax.swing.JFrame {
                 btnsetQuizActionPerformed(evt);
             }
         });
-        jPanel1.add(btnsetQuiz, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 420, 130, 30));
+        jPanel1.add(btnsetQuiz, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 430, 130, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 570));
 
@@ -154,13 +154,12 @@ public class HrJobOptionFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemovejobActionPerformed
 
     private void btneditjobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditjobActionPerformed
-        new  AdminModifyHrFrame().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btneditjobActionPerformed
+            new HrChooseJobForEditingFrame().setVisible(true);
+            this.dispose();    }//GEN-LAST:event_btneditjobActionPerformed
 
     private void btnsetQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsetQuizActionPerformed
         // TODO add your handling code here:
-        new AdminViewAllHrFrame().setVisible(true);
+        new HrChooseJobForSettingQuizFrame().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnsetQuizActionPerformed
 
